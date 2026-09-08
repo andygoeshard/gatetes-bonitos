@@ -23,8 +23,6 @@
 ## ✨ Demo
 
 > ![demo](https://via.placeholder.com/800x400/FFE4B5/8B4513?text=😸+Gatetes+Bonitos+-+agrega+tu+GIF+aquí)
->
-> *Tip: graba un GIF con `Tools > Gatetes > 🧶 Lanzar pelotita` + `Shift+Click` láser y súbelo aquí*
 
 ---
 
@@ -129,19 +127,7 @@ cd gatetes-bonitos
 - [ ] Caja de cartón donde se esconden
 - [ ] Soniditos `miau` (toggle)
 - [ ] Nombres y collares personalizables
-- [ ] Publicar en Marketplace
-
----
-
-## 📦 Publicar al Marketplace
-
-1. Cambiar `version` en `gradle.properties` a `1.0.0`
-2. Completar `CHANGELOG.md` y `pluginIcon.svg` 128px
-3. Crear token en https://plugins.jetbrains.com → Profile → Tokens
-4. ```bash
-   export ORG_GRADLE_PROJECT_intellijPlatformPublishingToken="tu_token"
-   ./gradlew publishPlugin
-   ```
+- [ ] Publicar en Marketplace (cuando quieras)
 
 ---
 
