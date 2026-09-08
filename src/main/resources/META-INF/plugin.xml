@@ -1,0 +1,84 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.gatetes.gatetes-bonitos</id>
+
+    <!-- Public plugin name should be written in Title Case.
+     Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>Gatetes-bonitos</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        Gatitos pixel art que caminan por todo tu IDE. ¡Acarícialos, arrástralos, láser con Shift+Click y pelotita!<br>
+        <em>10 diseños únicos, 2D libre, mimir/estirar, pelotita rebotando y reacción a builds (celebran o se asustan).</em>
+        ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyMessageBundle</resource-bundle>
+
+    <!-- Extensions defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="MyToolWindow" factoryClass="com.gatetes.MyToolWindowFactory"
+                    icon="AllIcons.Toolwindows.ToolWindowPalette"/>
+        <toolWindow id="Gatetes" factoryClass="com.gatetes.GatetesToolWindowFactory"
+                    icon="AllIcons.General.Animal" anchor="right"/>
+        <projectActivity implementation="com.gatetes.cat.CatStartupActivity"/>
+        <postStartupActivity implementation="com.gatetes.cat.CatLegacyStartupActivity"/>
+        <notificationGroup id="Gatetes" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <group id="GatetesGroup" text="Gatitos" popup="true">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+            <action id="com.gatetes.ToggleCats" class="com.gatetes.cat.ToggleCatsAction"
+                    text="Mostrar/Ocultar Gatitos" description="Muestra u oculta los gatitos"/>
+            <separator/>
+            <!-- Colores: cada uno muestra gatito de ese color, toggle para añadir/quitar -->
+            <group id="GatetesColorsGroup" text="Gatitos por color (10 únicos)" popup="false">
+                <action id="com.gatetes.ToggleOrange" class="com.gatetes.cat.ToggleOrangeAction"/>
+                <action id="com.gatetes.ToggleWhite" class="com.gatetes.cat.ToggleWhiteAction"/>
+                <action id="com.gatetes.ToggleBlack" class="com.gatetes.cat.ToggleBlackAction"/>
+                <action id="com.gatetes.ToggleGray" class="com.gatetes.cat.ToggleGrayAction"/>
+                <action id="com.gatetes.ToggleCalico" class="com.gatetes.cat.ToggleCalicoAction"/>
+                <action id="com.gatetes.ToggleCream" class="com.gatetes.cat.ToggleCreamAction"/>
+                <action id="com.gatetes.ToggleBrown" class="com.gatetes.cat.ToggleBrownAction"/>
+                <action id="com.gatetes.ToggleSiamese" class="com.gatetes.cat.ToggleSiameseAction"/>
+                <action id="com.gatetes.ToggleTabby" class="com.gatetes.cat.ToggleTabbyAction"/>
+                <action id="com.gatetes.ToggleTuxedo" class="com.gatetes.cat.ToggleTuxedoAction"/>
+            </group>
+            <separator/>
+            <group id="GatetesCountGroup" text="Cantidad (1-10)" popup="false">
+                <action id="com.gatetes.SetCats1" class="com.gatetes.cat.SetCats1Action" text="1 Gatito"/>
+                <action id="com.gatetes.SetCats2" class="com.gatetes.cat.SetCats2Action" text="2 Gatitos"/>
+                <action id="com.gatetes.SetCats3" class="com.gatetes.cat.SetCats3Action" text="3 Gatitos"/>
+                <action id="com.gatetes.SetCats4" class="com.gatetes.cat.SetCats4Action" text="4 Gatitos"/>
+                <action id="com.gatetes.SetCats5" class="com.gatetes.cat.SetCats5Action" text="5 Gatitos"/>
+                <action id="com.gatetes.SetCats6" class="com.gatetes.cat.SetCats6Action" text="6 Gatitos"/>
+                <action id="com.gatetes.SetCats7" class="com.gatetes.cat.SetCats7Action" text="7 Gatitos"/>
+                <action id="com.gatetes.SetCats8" class="com.gatetes.cat.SetCats8Action" text="8 Gatitos"/>
+                <action id="com.gatetes.SetCats9" class="com.gatetes.cat.SetCats9Action" text="9 Gatitos"/>
+                <action id="com.gatetes.SetCats10" class="com.gatetes.cat.SetCats10Action" text="10 Gatitos"/>
+            </group>
+            <separator/>
+            <group id="GatetesPlayGroup" text="Juegos" popup="false">
+                <action id="com.gatetes.SpawnYarn" class="com.gatetes.cat.SpawnYarnAction"/>
+                <action id="com.gatetes.SimSuccess" class="com.gatetes.cat.SimulateBuildSuccessAction"/>
+                <action id="com.gatetes.SimFail" class="com.gatetes.cat.SimulateBuildFailAction"/>
+            </group>
+            <separator/>
+            <group id="GatetesExtrasGroup" text="Extras" popup="false">
+                <action id="com.gatetes.ToggleHats" class="com.gatetes.cat.ToggleHatsAction"/>
+                <action id="com.gatetes.TogglePaws" class="com.gatetes.cat.TogglePawsAction"/>
+            </group>
+        </group>
+    </actions>
+    
+</idea-plugin>
