@@ -1,147 +1,156 @@
-# Gatetes-bonitos
+# 😺 Gatetes Bonitos
 
-[![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://twitter.com/JBPlatform)
-[![Developers Forum](https://img.shields.io/badge/JetBrains%20Platform-Join-blue)][jb:forum]
+<p align="center">
+  <img src="src/main/resources/META-INF/pluginIcon.svg" width="100" alt="Gatetes"/>
+  <br/>
+  <em>Gatitos pixel art que viven en tu IDE. ¡Acaricialos, arrástralos y juega con ellos!</em>
+</p>
 
-## Overview
+<p align="center">
+  <a href="https://github.com/andygoeshard/gatetes-bonitos"><img src="https://img.shields.io/badge/GitHub-gatetes--bonitos-24292e?logo=github" alt="GitHub"/></a>
+  <img src="https://img.shields.io/badge/Platform-IntelliJ%20%7C%20Android%20Studio-087CFA?logo=intellijidea" alt="Platform"/>
+  <img src="https://img.shields.io/badge/Kotlin-2.3.20-7F52FF?logo=kotlin" alt="Kotlin"/>
+  <img src="https://img.shields.io/badge/IDE-2025.3%20—%202026.1-00D8FF" alt="IDE"/>
+  <img src="https://img.shields.io/badge/cats-10%20únicos-FFB86C" alt="Cats"/>
+</p>
 
-This repository implements an IntelliJ Platform plugin.
+<p align="center">
+  <strong>10 gatitos únicos • 2D libre por toda la pantalla • Gorritos • Huellitas • Pelotita con física • Láser • Sidebar</strong>
+</p>
 
-## Demo Functionality
+---
 
-The sample plugin adds a `My Tool Window` tool window with a simple functionality of shuffling a random number.
+## ✨ Demo
 
-## Plugin structure
+> ![demo](https://via.placeholder.com/800x400/FFE4B5/8B4513?text=😸+Gatetes+Bonitos+-+agrega+tu+GIF+aquí)
+>
+> *Tip: graba un GIF con `Tools > Gatetes > 🧶 Lanzar pelotita` + `Shift+Click` láser y súbelo aquí*
 
-A generated project contains the following content structure:
+---
+
+## 🐾 Features
+
+| Feature | Descripción |
+|---------|-------------|
+| **10 michis únicos** | Naranja · Blanco · Negro · Gris · Calicó · Crema · Marrón · Siamés · Atigrado · Smoking. Cada uno con paleta y patrón propio (rayas, manchas, seal-point, smoking). |
+| **Orejas** | 5 con triangulito ▲ (Siamés/Tabby/Negro/Tuxedo/Marrón) y 5 redondeadas ◠ — se distinguen al toque |
+| **Movimiento 2D** | `vx`+`vy` libres, rebote en 4 paredes, salto con gravedad, persecución |
+| **Animaciones** | Caminar (4 frames) · Sentado · Durmiendo (bolita + Zzz) · Estirando · Asustado (¡pelos parados!) · Celebrando panza arriba |
+| **Caricias** | Click corto → `♥` corazones + ojos `^ ^` · Drag → arrastrar y soltar con impulso |
+| **Láser** | `Shift+Click` o `Alt+Click` en cualquier lado → punto rojo, todos persiguen |
+| **Pelotita** | `🧶` con física (gravedad, fricción, rebote, rotación). **¡Arrastrable!** Arrastrá y soltá con impulso, los gatitos la cazan |
+| **Huellitas** | Toggle `🐾` — dejan `🐾` 6s donde pisan y se desvanecen |
+| **Gorritos** | Toggle `🎩` — 45% spawnean con Santa / Party / Witch / Beanie / Bow |
+| **Reacción a builds** | `✅ Build OK` → celebran · `❌ Build falló` → se asustan y huyen. Hook a Gradle listo |
+| **Sidebar** | Tool Window `Gatetes` (barra derecha) con controles completos sin tocar el menú |
+| **Menú** | `Tools > Gatitos` — toggle por color (✓), cantidad 1-10, juegos, extras |
+
+---
+
+## 🎮 Uso
+
+### Atajos
+- **Click corto** en gato → acariciar (`♥`)
+- **Arrastrar gato** → mover + soltar con impulso
+- **Arrastrar pelotita** → mover + soltar con física
+- **Shift+Click / Alt+Click** en vacío → láser rojo
+- **Doble click** en vacío → láser
+
+### Menú `Tools > Gatitos`
+```
+Gatitos
+├── Mostrar/Ocultar Gatitos
+├── Gatitos por color (10 únicos)  ✓ toggle por color
+├── Cantidad (1-10)
+├── Juegos
+│   ├── 🧶 Lanzar pelotita
+│   ├── ✅ Simular build OK
+│   └── ❌ Simular build falló
+└── Extras
+    ├── 🎩 Gorritos ON/OFF
+    └── 🐾 Huellitas ON/OFF
+```
+
+### Sidebar `Gatetes` (barra derecha)
+Panel con todo lo anterior + estado en vivo, sin necesidad de menú. Botones 1-10, toggles de color, hats/paws, juegos y tips.
+
+---
+
+## 🛠️ Instalación (desarrollo)
+
+```bash
+git clone https://github.com/andygoeshard/gatetes-bonitos.git
+cd gatetes-bonitos
+
+# Correr IDE sandbox con el plugin
+./gradlew runIde
+
+# Build distribución
+./gradlew buildPlugin
+# → build/distributions/gatetes-bonitos-1.0.0-SNAPSHOT.zip
+
+# Instalar en tu Android Studio / IntelliJ
+# Settings > Plugins > ⚙️ > Install Plugin from Disk > gatetes-bonitos-*.zip
+```
+
+**Requisitos:** JDK 17+, IntelliJ 2025.3.5 (253) — compatible con Android Studio 2026.1 (261) `since-build 253`
+
+---
+
+## 🧩 Estructura del proyecto
 
 ```
 .
-├── .run/                   Predefined Run/Debug Configurations
-├── gradle
-│   ├── wrapper/            Gradle Wrapper
-│   ├── libs.versions.toml  Version catalog
-├── src                     Plugin sources
-│   └── main
-│       ├── kotlin/         Kotlin production sources
-│       └── resources/      Plugin resources
-│           ├── META-INF/   Plugin configuration file and logo
-│           └── messages/   Message bundles
-├── .gitignore              Git ignoring rules
-├── build.gradle.kts        Gradle build configuration
-├── gradle.properties       Gradle configuration properties
-├── gradlew                 *nix Gradle Wrapper script
-├── gradlew.bat             Windows Gradle Wrapper script
-├── README.md               This file
-└── settings.gradle.kts     Gradle project settings
+├── src/main/kotlin/com/gatetes/
+│   ├── cat/
+│   │   ├── CatModel.kt              # Cat, CatColor(10), HatType, EarType, estados
+│   │   ├── CatRenderer.kt           # Pixel art 16×16×3, paletas, orejas triangulito, gorritos
+│   │   ├── CatOverlayPanel.kt       # Overlay transparente, timer 30fps, drag, láser, pelotita, huellitas
+│   │   ├── CatManager.kt            # Singleton, persistencia PropertiesComponent, hasta 10
+│   │   ├── YarnBall.kt              # Física pelotita
+│   │   └── CatBuildListener.kt      # Hook builds
+│   └── GatetesToolWindowFactory.kt  # Sidebar
+├── src/main/resources/META-INF/
+│   ├── plugin.xml
+│   └── pluginIcon.svg
+└── build.gradle.kts
 ```
 
-In addition to the configuration files, the most crucial part is the `src` directory, which contains our implementation and the manifest for our plugin – [plugin.xml][file:plugin.xml].
+---
 
-> [!NOTE]
-> To use Java in your plugin, create the `/src/main/java` directory.
+## 🗺️ Roadmap
 
-The plugin logo is placed in `src/main/resources/META-INF/pluginIcon.svg`.
-See [Plugin Logo][docs:logo] for more information and logo requirements.
+- [x] 10 gatitos únicos con patrones
+- [x] Orejas triangulito / redondeadas
+- [x] Gorritos toggleables
+- [x] Huellitas toggleables
+- [x] Pelotita arrastrable con física
+- [x] Sidebar completa
+- [ ] Caja de cartón donde se esconden
+- [ ] Soniditos `miau` (toggle)
+- [ ] Nombres y collares personalizables
+- [ ] Publicar en Marketplace
 
-## Build script
+---
 
-The [build.gradle.kts][file:build.gradle.kts] is the core of the project definition.
-It applies three Gradle plugins:
+## 📦 Publicar al Marketplace
 
-| Plugin                             | Description                                                                      |
-|------------------------------------|----------------------------------------------------------------------------------|
-| `org.jetbrains.kotlin.jvm`         | Adds Kotlin support                                                              |
-| `org.jetbrains.changelog`          | Simplifies patching the [CHANGELOG.md][file:CHANGELOG.md] file                   |
-| `org.jetbrains.intellij.platform`  | The [IntelliJ Platform Gradle Plugin][docs:intellij-platform-gradle-plugin-docs] |
+1. Cambiar `version` en `gradle.properties` a `1.0.0`
+2. Completar `CHANGELOG.md` y `pluginIcon.svg` 128px
+3. Crear token en https://plugins.jetbrains.com → Profile → Tokens
+4. ```bash
+   export ORG_GRADLE_PROJECT_intellijPlatformPublishingToken="tu_token"
+   ./gradlew publishPlugin
+   ```
 
-The `intellijPlatform` dependencies block selects the IDE to compile against:
+---
 
-```kotlin
-intellijIdea("2025.3.5")
-```
+## 💖 Créditos
 
-See [Target Versions][docs:target-version] for more information.
+Hecho con mucho amor gatuno por [@andygoeshard](https://github.com/andygoeshard) + `Muse Spark`.
 
-The `intellijPlatform` dependencies block also contains a dependency on the platform testing framework:
+> ¿Ideas? ¡Abre un issue o PR! Toda PR con un gatito nuevo es bienvenida 😸
 
-```kotlin
-testFramework(TestFrameworkType.Platform)
-```
-
-See [Testing][docs:testing] for more information
-
-## Plugin configuration file
-
-The plugin configuration file is a [plugin.xml][file:plugin.xml] file located in the `src/main/resources/META-INF` directory.
-It provides general information about the plugin, its dependencies, extensions, and listeners.
-
-You can read more about this file in the [Plugin Configuration File][docs:plugin.xml] section of our documentation.
-
-### Plugin ID and name
-
-Generated plugin ID and name may require adjustment.
-
-These values are generated based on _Group ID_ and _Artifact ID_ provided in the IDE Plugin wizard.
-It is recommended to review `<id>` and `<name>` elements in the plugin.xml file, and adjust them if needed.
-
-Please note that Gradle properties `rootProject.name` and `project.group` don't need to match the `<id>` and `<name>` elements.
-There is no IntelliJ Platform-related reason they should as they serve different functions.
-
-## Predefined Run/Debug configurations
-
-Within the default project structure, there is a `.run` directory provided containing predefined *Run/Debug configurations* that expose corresponding Gradle tasks:
-
-| Configuration name  | Description                                                                                                                                                                         |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Run IDE with Plugin | Runs [`:runIde`][docs:intellij-platform-gradle-plugin-runIde] IntelliJ Platform Gradle Plugin task. Use the *Debug* icon for plugin debugging.                                        |
-| Run Tests           | Runs [`:check`][gradle:lifecycle-tasks] Gradle task.                                                                                                                                |
-| Run Verifications   | Runs [`:verifyPlugin`][docs:intellij-platform-gradle-plugin-verifyPlugin] IntelliJ Platform Gradle Plugin task to check the plugin compatibility against the specified IntelliJ IDEs. |
-
-> [!NOTE]
-> You can find the logs from the running task in the `idea.log` tab.
-
-## Publishing the plugin
-
-> [!TIP]
-> Make sure to follow all guidelines listed in [Publishing a Plugin][docs:publishing] to follow all recommended and required steps.
-
-Releasing a plugin to [JetBrains Marketplace](https://plugins.jetbrains.com) is a straightforward operation that uses the `publishPlugin` Gradle task provided by the [intellij-platform-gradle-plugin][docs:intellij-platform-gradle-plugin-docs].
-
-You can also upload the plugin to the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/upload) manually via UI.
-
-## Useful links
-
-- [IntelliJ Platform SDK Plugin SDK][docs]
-- [IntelliJ Platform Gradle Plugin Documentation][docs:intellij-platform-gradle-plugin-docs]
-- [IntelliJ Platform Explorer][jb:ipe]
-- [JetBrains Marketplace Quality Guidelines][jb:quality-guidelines]
-- [IntelliJ Platform UI Guidelines][jb:ui-guidelines]
-- [JetBrains Marketplace Paid Plugins][jb:paid-plugins]
-- [IntelliJ SDK Code Samples][gh:code-samples]
-
-[docs]: https://plugins.jetbrains.com/docs/intellij
-[docs:plugin.xml]: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html?from=IJPluginReadmeFile
-[docs:publishing]: https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginReadmeFile
-[docs:intellij-platform-gradle-plugin-docs]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html?from=IJPluginReadmeFile
-[docs:intellij-platform-gradle-plugin-runIde]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-tasks.html?from=IJPluginReadmeFile#runIde
-[docs:intellij-platform-gradle-plugin-verifyPlugin]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-tasks.html?from=IJPluginReadmeFile#verifyPlugin
-[docs:logo]: https://plugins.jetbrains.com/docs/intellij/plugin-icon-file.html?from=IJPluginReadmeFile
-[docs:target-version]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html?from=IJPluginReadmeFile#target-versions
-[docs:testing]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html?from=IJPluginReadmeFile#testing
-
-[file:build.gradle.kts]: ./build.gradle.kts
-[file:CHANGELOG.md]: ./CHANGELOG.md
-[file:gradle.properties]: ./gradle.properties
-[file:plugin.xml]: ./src/main/resources/META-INF/plugin.xml
-
-[gh:code-samples]: https://github.com/JetBrains/intellij-sdk-code-samples
-
-[gradle:lifecycle-tasks]: https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks
-
-[jb:github]: https://github.com/JetBrains/.github/blob/main/profile/README.md
-[jb:forum]: https://platform.jetbrains.com/
-[jb:quality-guidelines]: https://plugins.jetbrains.com/docs/marketplace/quality-guidelines.html
-[jb:paid-plugins]: https://plugins.jetbrains.com/docs/marketplace/paid-plugins-marketplace.html
-[jb:ipe]: https://jb.gg/ipe
-[jb:ui-guidelines]: https://jetbrains.github.io/ui
+<p align="center">
+  <sub>Made with 🐾 in Argentina</sub>
+</p>
